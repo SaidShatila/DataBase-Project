@@ -53,13 +53,13 @@
 --StoreName varchar(255)
 --Primary Key( OrderID, OwnerID, StoreName),
 --);
-	
+
 --CREATE TABLE Product (
 --    ProductID int Primary Key,
 --    Picture varchar(255),
 --    Description varchar(255),
+--  ProductName VARCHAR(255) not null
 --);
-
 
 
 --CREATE TABLE OrderItem (
@@ -89,14 +89,28 @@
 --OwnerID int ,
 --ProductID int ,
 --StoreName varchar(255),
---Quantity int ,
---Price Money,
---Cost Money,
---Discount Float,
+--Quantity int not  null,
+--Price Money not null,
+--Cost Money not null,
+--Discount Float ,
 --Primary Key(OwnerID, ProductID, StoreName),
 --);
 
 --Create Table ShoppingCart(
 --CustomerID int not null Primary Key,
 --);
+
+--Create Table CartItem(
+--CartItemID int not null Primary key IDENTITY(100,2),
+--CustomerID int not null,
+--Name varChar(255) not null,
+--OwnerID int not null,
+--ProductID int not null,
+--Quantity int not null,
+--Price money not null,
+--Foreign key ( CustomerID) references ShoppingCart (CustomerID),
+--Foreign key (OwnerID, Name) references Store (OwnerID,Name),
+--Foreign key ( ProductID) references Product (ProductID)
+--);
+
 
