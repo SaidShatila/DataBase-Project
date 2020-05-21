@@ -31,10 +31,16 @@
 --	Primary Key(OwnerID, Name)
 --);
 
+
 --CREATE TABLE Orderr (
 --    OrderID int primary key,
---		StoreID int,
+--		StoreID int,   
+--		OrderDate Date,
 --);
+--ALTER TABLE Orderr 
+--ADD IsDispatched  bit not null   
+--CONSTRAINT IsDispatched DEFAULT 0 
+--WITH VALUES;
 
 --Create Table Addto(
 --CustomerID int Primary Key
@@ -68,7 +74,10 @@
 --    PaidPrice MONEY,
 --	Discount FLOAT,
 --);
-	
+
+--ALTER TABLE OrderItem
+--ADD ProductID int not null,
+--Foreign key ( ProductID) references Product (ProductID)
 --Create Table Includes(
 --OrderID int ,
 --OrderItemID int ,
@@ -112,5 +121,7 @@
 --Foreign key (OwnerID, Name) references Store (OwnerID,Name),
 --Foreign key ( ProductID) references Product (ProductID)
 --);
+ 
+---- ZABET EL TABLES T3een many to one and one to one
 
 

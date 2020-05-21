@@ -65,3 +65,85 @@
 
 
 
+
+--Select OrderItem.OrderItemID,OrderItem.OrderedQuantity,OrderItem.PaidPrice,OrderItem.Discount , Orderr.OrderID  from OrderItem 
+-- join Includes  on OrderItem.OrderItemID=Includes.OrderItemID 
+--Join  Orderr on Includes.OrderItemID=Orderr.OrderID where Orderr.OrderID in 
+--(Select Checkout.OrderID from CheckOut where CheckOut.CustomerID=100) 
+
+
+--Update Orderr set Orderr.isDispatched=1 where Orderr.OrderID=''
+
+--NOT DONE CHECK OUT DOWN -->>>>>
+--  Select  Orderr.OrderID, Orderr.OrderDate, Sum(OrderItem.PaidPrice*OrderItem.OrderedQuantity)
+--from Orderr  Join  Includes on Orderr.OrderID=Includes.OrderID
+--join OrderItem  on OrderItem.OrderItemID=Includes.OrderItemID    
+--where Orderr.OrderDate>'01-01-2020' and Orderr.OrderDate<'31-01-2020' and 
+--Orderr.OrderID in( Select Sells.OrderID from Sells where Sells.OwnerID=100)
+
+
+
+--Select Orderr.OrderID,Orderr.OrderDate  ,sum(OrderItem.PaidPrice*OrderItem.OrderedQuantity )as Total
+--from Orderr 
+--join Includes on Orderr.OrderID=Includes.OrderID
+--join OrderItem on OrderItem.OrderItemID=Includes.OrderItemID
+--where Orderr.OrderDate>Convert (date, '2020-01-01') and Orderr.OrderDate<Convert (date,'2020-01-31') and 
+--Orderr.OrderID in( Select Sells.OrderID from Sells where Sells.OwnerID=100)
+--Group By Orderr.OrderID , Orderr.OrderDate
+
+
+--Select Orderr.OrderID,Orderr.OrderDate  ,sum(OrderItem.PaidPrice*OrderItem.OrderedQuantity )as Total
+--from Orderr 
+--join Includes on Orderr.OrderID=Includes.OrderID
+--join OrderItem on OrderItem.OrderItemID=Includes.OrderItemID
+--where Orderr.OrderDate between Convert (date, '2020-01-01') and Convert (date,'2020-03-01') and 
+--Orderr.OrderID in( Select Sells.OrderID from Sells where Sells.OwnerID=100)
+--Group By Orderr.OrderID , Orderr.OrderDate
+
+
+
+--Select Orderr.OrderID,Orderr.OrderDate  ,sum(OrderItem.PaidPrice*OrderItem.OrderedQuantity )as Total
+--from Orderr 
+--join Includes on Orderr.OrderID=Includes.OrderID
+--join OrderItem on OrderItem.OrderItemID=Includes.OrderItemID
+--where Orderr.OrderDate between Convert (date, '2020-01-01') and Convert (date,'2020-12-31') and 
+--Orderr.OrderID in( Select Sells.OrderID from Sells where Sells.OwnerID=100)
+--Group By Orderr.OrderID , Orderr.OrderDate
+
+
+
+--Select Orderr.OrderID,Orderr.OrderDate  ,sum(OrderItem.PaidPrice*OrderItem.OrderedQuantity )as Total
+--from Orderr 
+--join Includes on Orderr.OrderID=Includes.OrderID
+--join OrderItem on OrderItem.OrderItemID=Includes.OrderItemID
+--where Orderr.OrderDate between Convert (date, '2020-01-01') and Convert (date,'2023-01-01') and 
+--Orderr.OrderID in( Select Sells.OrderID from Sells where Sells.OwnerID=100)
+--Group By Orderr.OrderID , Orderr.OrderDate
+
+
+
+
+--Select ProductID , sum(OrderItem.OrderItemID) as TotalSales
+--From OrderItem
+--join Includes on OrderItem.OrderItemID=Includes.OrderID
+--where Includes.OrderID in 
+--(Select OrderID 
+--from Sells 
+--where OwnerID=100)
+--Group By ProductID
+
+
+--Select ProductID , sum(OrderItem.OrderItemID) as TotalSales
+--From OrderItem
+--join Includes on OrderItem.OrderItemID=Includes.OrderID
+--where Includes.OrderID in 
+--(Select Sells.OrderID 
+--from Sells 
+--join Orderr on Orderr.OrderID=Sells.OrderID
+--where OwnerID=100
+--and Orderr.OrderDate BETWEEN Convert (date, '2020-01-01') and Convert (date,'2023-01-01'))
+--Group By ProductID
+
+
+
+
